@@ -51,7 +51,7 @@ function ProductInfo() {
 
     return (
         <Layout>
-            <section className="min-h-[410px] text-gray-600 body-font overflow-hidden">
+            <section className="min-h-[410px] py-12 text-gray-600 body-font overflow-hidden">
                 <div className="container px-5 py-10 mx-auto">
                     {products && 
                     <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -171,7 +171,7 @@ function ProductInfo() {
 
                             <div className="flex">
                                 <span className="title-font font-medium text-2xl text-gray-900">
-                                ₹{products.price}
+                                ${products.price}
                                 </span>
                                 <button  onClick={()=>addCart(products)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                                     Add To Cart
