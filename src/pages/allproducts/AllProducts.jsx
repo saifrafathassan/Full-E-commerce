@@ -7,7 +7,7 @@ import { addToCart } from '../../redux/cartSlice'
 
 function Allproducts() {
 const context = useContext(myContext)
-const { mode, product ,searchkey, setSearchkey, filterType, setFilterType, filterPrice, setFilterPrice} = context
+const { mode, product , searchkey} = context
 
 const dispatch = useDispatch()
 const cartItems = useSelector((state)=> state.cart);
@@ -43,7 +43,7 @@ return (
                             <div onClick={()=> window.location.href = `/productinfo/${id}`}   key={index} className="p-4 md:w-1/4  drop-shadow-lg " >
                                 <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                                     <div className="flex justify-center cursor-pointer" >
-                                        <img className=" rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out" src={imageUrl} alt="blog" />
+                                        <img className=" rounded-2xl w-[400px] sm:w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out" src={imageUrl} alt="blog" />
                                     </div>
                                     <div className="p-5 border-t-2">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h2>
