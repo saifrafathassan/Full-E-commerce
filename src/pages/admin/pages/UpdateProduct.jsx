@@ -2,9 +2,6 @@ import React, { useContext } from 'react';
 import { toast } from 'react-toastify'; 
 import myContext from '../../../context/data/myContext';
 import Loader from '../../../components/loader/Loader';
-import { getDocs, collection } from 'firebase/firestore';
-import { fireDB } from '../../../firebase/FirebaseConfig'
-
 
 function UpdateProduct() {
     const context = useContext(myContext);
@@ -13,16 +10,6 @@ function UpdateProduct() {
 
     async function handleUpdate() {
         try {
-            const querySnapshot = await getDocs(collection(fireDB, 'products'));
-            
-            const existingOrder = querySnapshot.docs.some(doc => doc.data().order === products.order);
-    
-            if (existingOrder) {
-
-                toast.error("This Order Number Already exists")
-                return;
-            }
-    
             await updateProduct();
         } catch (error) {
             toast.error('Error Please Try Agine');
