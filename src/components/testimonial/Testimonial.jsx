@@ -106,12 +106,12 @@ const Reviewed = () => {
         transition={{ duration: 1 }}
         className='w-full'
       >
-        <div className={`h-full top-[-350px] md:top-[-300px] relative z-[200] w-full flex md:px-12 justify-between ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
+        <div className={`h-full top-[-320px] md:top-[-300px] relative z-[200] w-full flex md:px-12 justify-between ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
           <div className={`cursor-pointer hover:text-main duration-300 ${mode === 'dark' ? 'text-white' : 'text-black'}`} onClick={() => sliderRef.current.slickPrev()}>
-            <IoIosArrowBack size={40} />
+            <IoIosArrowBack size={30} />
           </div>
           <div className={`cursor-pointer hover:text-main duration-300 ${mode === 'dark' ? 'text-white' : 'text-black'}`} onClick={() => sliderRef.current.slickNext()}>
-            <IoIosArrowForward size={40} />
+            <IoIosArrowForward size={30} />
           </div>
         </div>
       </motion.div>
