@@ -66,8 +66,8 @@ function Filter() {
                 style={{
                     backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '',
                     color: mode === 'dark' ? 'white' : '',
-                    maxWidth: '600px',
-                    minWidth: '500px',
+                    maxWidth: '400px',
+                    minWidth: '300px',
                 }}
             >
                 <option value="" disabled>
