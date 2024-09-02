@@ -12,7 +12,7 @@ import Slider from 'react-slick';
 import { motion } from 'framer-motion'
 
 const TesImages = [
-  { image: Man, name: 'Steven Gerrard', contry: 'USA', content: 'I recently purchased a jacket from Swift-Store, and I am extremely happy with the quality. The fabric is excellent, and the details are well-crafted, making me feel both comfortable and stylish. The delivery was fast.....' },
+  { image: Man, name: 'Steven Gerrard', contry: 'USA', content: 'I recently purchased a jacket from Swift-Store, and I am extremely happy with the quality. The fabric is excellent, and the details are well-crafted, making me feel both comfortable and stylish. The delivery was fast' },
   { image: Man2, name: 'Jhon Kenway', contry: 'Brazil', content: 'I ordered a shirt from Swift-Store, and it turned out to be a great choice. The color and fit are just as described, and the quality is top-notch. The delivery was fast, and everything arrived in perfect condition.' },
   { image: Women, name: 'Kristina Castle', contry: 'Germany', content: 'I recently got a hoodie from Swift-Store, and it exceeded my expectations. The fabric is soft, and the design is exactly as shown on the website. Delivery was prompt, and the whole experience was seamless!' },
   { image: Man3, name: 'Mark Polo', contry: 'Belgrade', content: 'I bought a pair of jeans from Swift-Store, and I’m really impressed. The fit is perfect, and the material feels durable and comfortable. Shipping was quick, and the entire process was smooth and hassle-free.' }
@@ -66,7 +66,7 @@ const Reviewed = () => {
         <div className={`heading flex gap-5 flex-col items-center w-full ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
           <h2 className='text-[22px] font-bold'>Reviewed by People</h2>
           <h1 className='text-[27px] md:text-[42px] font-extrabold'>Client's Testimonials</h1>
-          <p className={`text-[16px] md:w-[700px] text-center px-5 ${mode === 'dark' ? 'text-gray-300' : 'text-[#706f7b]'}`}>
+          <p className={`text-[15px] md:w-[700px] text-center px-5 ${mode === 'dark' ? 'text-gray-300' : 'text-[#706f7b]'}`}>
             Discover the positive impact we've made on our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you.
           </p>
         </div>
@@ -83,7 +83,7 @@ const Reviewed = () => {
           >
             <div className='flex justify-center pb-12 mx-auto my-8'>
               <div className={`card-1 h-[400px] w-[400px] md:w-[800px] mx-auto rounded-2xl p-14 ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-[#fff]'} shadow-2xl shadow-gray-500/50`}>
-                <p className='text-[17px] md:text-[22px] font-[500]'>{obj.content}</p>
+                <p className='text-[15px] md:text-[22px] font-[500]'>{obj.content}</p>
                 <div className='flex justify-between items-center pt-7'>
                   <div className='flex items-center justify-center'>
                     <img className='rounded-[50%] object-cover w-[112px] h-[112px]' src={obj.image} alt="testimonial" />
