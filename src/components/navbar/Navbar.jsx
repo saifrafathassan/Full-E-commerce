@@ -136,7 +136,7 @@ const scrollTo = () => {
 
       {/* desktop  */}
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-gradient-to-r from-yellow-700 to-yellow-300 px-4 text-md font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
+        <p className="flex h-10 items-center justify-center bg-gradient-to-r from-yellow-700 to-yellow-300 px-4 text-sm sm:text-md font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
           Get free delivery on orders over $200
         </p>
 
@@ -159,7 +159,7 @@ const scrollTo = () => {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
                   <div className="flex ">
-                    <h1 className=' text-3xl font-bold text-main  pl-8 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h1>
+                    <h1 className='text-xl sm:text-3xl font-bold text-main  pl-8 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h1>
                   </div>
                 </Link>
               </div>
@@ -227,7 +227,7 @@ const scrollTo = () => {
         </nav>
       </header>
       {showButton && (
-        <button className='bg-main flex justify-center items-center rounded-full h-[50px] w-[50px] fixed right-0 bottom-0 mb-[40px] mr-[40px] z-[1000] hover:bg-white duration-300 hover:border-black border-main border-2' onClick={scrollTo}>
+        <button className='bg-main flex justify-center items-center rounded-full h-[50px] w-[50px] fixed right-0 bottom-0 mb-[20px] sm:mb-[40px] mr-[30px] sm:mr-[40px] z-[1000] hover:bg-white duration-300 hover:border-black border-main border-2' onClick={scrollTo}>
           <IoIosArrowUp className="text-white hover:text-black duration-300" size={30}/>
         </button>
       )}
