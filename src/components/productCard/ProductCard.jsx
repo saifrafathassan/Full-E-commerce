@@ -32,6 +32,8 @@ function ProductCard() {
 
     const sortedProducts = [...product].sort((a, b) => a.order - b.order);
 
+    const showBanners = searchkey === '' && filterType === '';
+
     return (
         <section className="text-gray-600 body-font">
             <div className="container py-8 md:py-16 mx-auto">
@@ -41,7 +43,8 @@ function ProductCard() {
             </div>
 
                 {/* Display the first banner image (Bags) before the first row */}
-                <div className="w-full flex justify-center mt-6 relative group">
+                {showBanners && (
+                    <div className="w-full flex justify-center mt-6 relative group">
                     <img src={bannerImages[0].image} alt="Bags Banner" className="w-full h-auto rounded-lg transition-all duration-300 group-hover:brightness-50" />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <p className="text-white text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-lg">
@@ -49,6 +52,8 @@ function ProductCard() {
                         </p>
                     </div>
                 </div>
+                )}
+
 
                 <div className="flex flex-wrap mt-8">
                     {sortedProducts.filter((obj) => obj.title.toLowerCase().includes(searchkey.toLowerCase()))
@@ -76,15 +81,17 @@ function ProductCard() {
                                 </div>
 
                                 {/* Add banner image after every 4 products */}
-                                {(index + 1) % 4 === 0 && bannerImages[bannerIndex] && (
-                                    <div className="w-full flex justify-center mt-6 relative group">
-                                        <img src={bannerImages[bannerIndex].image} alt={`Banner ${bannerIndex + 1}`} className="w-full h-auto rounded-lg transition-all duration-300 group-hover:brightness-50" />
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <p className="text-white text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-lg">
-                                                {bannerImages[bannerIndex].text}
-                                            </p>
+                                {showBanners && (
+                                    (index + 1) % 4 === 0 && bannerImages[bannerIndex] && (
+                                        <div className="w-full flex justify-center mt-6 relative group">
+                                            <img src={bannerImages[bannerIndex].image} alt={`Banner ${bannerIndex + 1}`} className="w-full h-auto rounded-lg transition-all duration-300 group-hover:brightness-50" />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <p className="text-white text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-lg">
+                                                    {bannerImages[bannerIndex].text}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    )
                                 )}
                             </React.Fragment>
                         )
