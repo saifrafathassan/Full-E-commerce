@@ -52,6 +52,16 @@ function ProductCard() {
         groupedProducts.push(sortedProducts.slice(i, i + 4));
     }
 
+    const filteredProducts = sortedProducts
+    .filter((obj) => obj.title.toLowerCase().includes(searchkey.toLowerCase()))
+    .filter((obj) => obj.category.toLowerCase().includes(filterType.toLowerCase()));
+
+// Group filtered products into rows of 4
+    const groupedFilteredProducts = [];
+    for (let i = 0; i < filteredProducts.length; i += 4) {
+        groupedFilteredProducts.push(filteredProducts.slice(i, i + 4));
+    }
+
     return (
         <section className="text-gray-600 body-font overflow-hidden">
             <div className="container py-8 md:py-16 mx-auto">
@@ -78,38 +88,36 @@ function ProductCard() {
 
                 {/* Slider for small screens */}
                 <div className="md:hidden">
-                    {groupedProducts.map((group, index) => (
-                        <Slider key={index} {...sliderSettings} className="mb-6">
-                            {group.map((item) => (
-                                <div key={item.id} className="p-2">
-                                    <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
-                                        style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
-                                        <div onClick={() => window.location.href = `/productinfo/${item.id}`} className="flex justify-center cursor-pointer">
-                                            <img className="rounded-2xl w-[400px] h-80 p-2 hover:scale-110 transition-transform duration-300 ease-in-out"
-                                                src={item.imageUrl} alt="product" />
-                                        </div>
-                                        <div className="p-5 border-t-2">
-                                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
-                                                style={{ color: mode === 'dark' ? 'white' : '' }}>Swift-Store</h2>
-                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3"
-                                                style={{ color: mode === 'dark' ? 'white' : '' }}>{item.title}</h1>
-                                            <p className="leading-relaxed mb-3"
-                                                style={{ color: mode === 'dark' ? 'white' : '' }}>$ {item.price}</p>
-                                            <div className="flex justify-center">
-                                                <button onClick={() => addCart(item)} type="button"
-                                                    className="focus:outline-none text-white bg-main hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2">
-                                                    Add To Cart
-                                                </button>
-                                            </div>
+                {groupedFilteredProducts.map((group, index) => (
+                    <Slider key={index} {...sliderSettings} className="mb-6">
+                        {group.map((item) => (
+                            <div key={item.id} className="p-2">
+                                <div className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                                    style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}>
+                                    <div onClick={() => window.location.href = `/productinfo/${item.id}`} className="flex justify-center cursor-pointer">
+                                        <img className="rounded-2xl w-[400px] h-80 p-2 hover:scale-110 transition-transform duration-300 ease-in-out"
+                                            src={item.imageUrl} alt="product" />
+                                    </div>
+                                    <div className="p-5 border-t-2">
+                                        <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                                            style={{ color: mode === 'dark' ? 'white' : '' }}>Swift-Store</h2>
+                                        <h1 className="title-font text-lg font-medium text-gray-900 mb-3"
+                                            style={{ color: mode === 'dark' ? 'white' : '' }}>{item.title}</h1>
+                                        <p className="leading-relaxed mb-3"
+                                            style={{ color: mode === 'dark' ? 'white' : '' }}>$ {item.price}</p>
+                                        <div className="flex justify-center">
+                                            <button onClick={() => addCart(item)} type="button"
+                                                className="focus:outline-none text-white bg-main hover:bg-gray-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2">
+                                                Add To Cart
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                        </Slider>
-                        
-                    ))}
-                    
-                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                ))}
+            </div>
 
                 {/* Grid for larger screens */}
                 <div className="hidden md:flex flex-wrap mt-8">
@@ -135,7 +143,6 @@ function ProductCard() {
                                             </div>
                                         </div>
                                     </div>
-
                                     {/* Add banner image after every 4 products */}
                                     {showBanners && (index + 1) % 4 === 0 && bannerImages[bannerIndex] && (
                                         <div className="w-full flex justify-center mt-6 relative group">
