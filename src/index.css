@@ -2,11 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* fonts style */
-/* body {
-  font-family: "Shantell Sans", cursive;
-  font-size: 18px;
-} */
+
+/* products arrows  */
+
+.slick-prev, .slick-next {
+  top: 35%; 
+  transform: translateY(-50%);
+  z-index: 20; 
+}
+
+.slick-prev {
+  left: 5px;
+}
+
+.slick-next {
+  right: 18px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #fde047; 
+  font-size: 30px;
+}
+
+
+.slick-dots li button:before {
+  color: black; 
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fde047; 
+}
+
+
+/* hero section */
 
 .hero-container {
     position: relative;
@@ -22,7 +51,7 @@
 }
 
 
-/* arrows */
+/* arrows for hero and testmonial  */
 .arrow-container {
     position: absolute;
     top: 50%;
