@@ -12,9 +12,9 @@ import { motion } from 'framer-motion'
 
 const TesImages = [
   { image: Man, name: 'Steven Gerrard', contry: 'USA',       content: 'I recently purchased a jacket from Swift-Store, and Im extremely happy with the quality. The fabric is excellent, and the details are well-crafted, making me feel both comfortable and stylish. The delivery was fast.....'},
-  { image: Man2, name: 'Jhon kenway', contry: 'Barazill',    content: 'I ordered a shirt from Swift-Store, and it turned out to be a great choice. The color and fit are just as described, and the quality is top-notch. The delivery was fast, and everything arrived in perfect condition. Swift-Store has definitely'},
-  { image: Women, name: 'Kristina Castle', contry: 'German', content: 'I recently got a hoodie from Swift-Store, and it exceeded my expectations. The fabric is soft, and the design is exactly as shown on the website. Delivery was prompt, and the whole experience was seamless. I’m definitely coming back for more!'},
-  { image: Man3, name: 'Mark polo', contry: 'Belgrade',      content: 'I bought a pair of jeans from Swift-Store, and I’m really impressed. The fit is perfect, and the material feels durable and comfortable. Shipping was quick, and the entire process was smooth and hassle-free. I highly recommend Swift-Store'}
+  { image: Man2, name: 'Jhon kenway', contry: 'Barazill',    content: 'I ordered a shirt from Swift-Store, and it turned out to be a great choice. The color and fit are just as described, and the quality is top-notch. The delivery was fast, and everything arrived in perfect condition.'},
+  { image: Women, name: 'Kristina Castle', contry: 'German', content: 'I recently got a hoodie from Swift-Store, and it exceeded my expectations. The fabric is soft, and the design is exactly as shown on the website. Delivery was prompt, and the whole experience was seamless!'},
+  { image: Man3, name: 'Mark polo', contry: 'Belgrade',      content: 'I bought a pair of jeans from Swift-Store, and I’m really impressed. The fit is perfect, and the material feels durable and comfortable. Shipping was quick, and the entire process was smooth and hassle-free.'}
 ];
 
 
@@ -76,8 +76,8 @@ const Reviewed = () => {
                 className='w-full'
                 key={index}
                 >
-          <div className='flex justify-center py-20 mx-auto my-8'>
-          <div className="card-1 w-[400px] md:w-[800px] mx-auto rounded-2xl p-20 pb-8 sm:px-[100px] sm:py-[40px] bg-[#fff] shadow-2xl shadow-gray-500/50">
+          <div className='flex justify-center pb-12 mx-auto my-8'>
+          <div className="card-1 h-[400px] w-[400px] md:w-[800px] mx-auto rounded-2xl p-14 bg-[#fff] shadow-2xl shadow-gray-500/50">
             <p className='text-[17px] md:text-[22px] font-[500]'>{obj.content}</p>
             <div className='flex justify-between items-center pt-7'>
               <div className='flex items-center justify-center'>

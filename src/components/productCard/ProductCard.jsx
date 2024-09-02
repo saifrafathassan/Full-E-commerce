@@ -9,7 +9,7 @@ import Shoe from '../../assets/shoe.jpg'
 
 function ProductCard() {
     const context = useContext(myContext)
-    const { mode, product, searchkey } = context;
+    const { mode, product, searchkey, filterType } = context;
 
     const dispatch = useDispatch()
     const cartItems = useSelector((state) => state.cart)
@@ -51,9 +51,11 @@ function ProductCard() {
                 </div>
 
                 <div className="flex flex-wrap mt-8">
-                    {sortedProducts.filter((obj) => obj.title.toLowerCase().includes(searchkey)).map((item, index) => {
+                    {sortedProducts.filter((obj) => obj.title.toLowerCase().includes(searchkey.toLowerCase()))
+                        .filter((obj) => obj.category.toLowerCase().includes(filterType.toLowerCase()))
+                        .map((item, index) => {
                         const { title, price, imageUrl } = item;
-                        const bannerIndex = Math.floor((index + 1) / 4); // تحديد أي صورة من مجموعة البانر سيتم عرضها بعد كل 4 منتجات
+                        const bannerIndex = Math.floor((index + 1) / 4); 
 
                         return (
                             <React.Fragment key={index}>

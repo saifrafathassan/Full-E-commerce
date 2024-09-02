@@ -4,7 +4,7 @@ import myContext from '../../context/data/myContext';
 
 function Filter() {
     const context = useContext(myContext);
-    const { mode, searchkey, setSearchkey } = context;
+    const { mode, searchkey, setSearchkey, filterType, setFilterType, product  } = context;
 
     return (
         <div className='container mx-auto px-4 mt-5'>
@@ -42,6 +42,45 @@ function Filter() {
                     />
                 </div>
             </motion.div>
+            <div className="flex items-center justify-between mt-4 bg-gray-300 p-4 rounded-full">
+                <p className="font-medium text-gray-600 pl-4">
+                    Filters
+                </p>
+                <button
+                    className="px-6 mr-2 py-2 bg-gray-50 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-full"
+                    style={{ color: mode === 'dark' ? 'white' : '' }}
+                    onClick={() => {
+                        setSearchkey('');
+                        setFilterType('');
+                    }}
+                >
+                    Reset Filter
+                </button>
+            </div>
+        <div className="mt-4 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <select
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+                className="px-6 py-3 w-full rounded-full bg-gray-50 border border-gray-300 outline-0 focus:border-gray-500 focus:bg-white text-sm shadow-md transition-all duration-300 appearance-none custom-select"
+                style={{
+                    backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '',
+                    color: mode === 'dark' ? 'white' : '',
+                    maxWidth: '600px',
+                    minWidth: '500px',
+                }}
+            >
+                <option value="" disabled>
+                Select Category
+                </option>
+                {[...new Set(product.map((item) => item.category))].map((category, index) => (
+                    <option key={index} value={category}>
+                        {category}
+                    </option>
+                ))}
+            </select>
+            </div>
+        </div>
         </div>
     );
 }

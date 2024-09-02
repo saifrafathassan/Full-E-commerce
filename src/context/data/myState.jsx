@@ -185,9 +185,16 @@ useEffect(() => {
 }, []);
 
 const [searchkey, setSearchkey] = useState('')
+const [filterType, setFilterType] = useState('')
 
   return (
-    <MyContext.Provider value={{mode, toggleMode, loading, setLoading, products, setProducts, addProduct, product, edithandle, updateProduct, deleteProduct, order, user, searchkey, setSearchkey}}>
+    <MyContext.Provider value={{
+      mode, toggleMode, loading, setLoading, 
+      products, setProducts, addProduct, product, 
+      edithandle, updateProduct, deleteProduct, order, 
+      user, searchkey, setSearchkey, setFilterType,
+      filterType
+      }}>
       {props.children}
     </MyContext.Provider>
   )

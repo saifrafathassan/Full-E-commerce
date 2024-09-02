@@ -19,7 +19,7 @@ function Track() {
         <div className="container px-5 md:py-5 mx-auto">
           <div className="flex flex-wrap -m-4 text-center">
             <motion.div
-            className="lg:w-1/3 lg:mb-0 mb-6 p-4"
+            className="w-full lg:w-1/3 lg:mb-0 mb-6 p-4"
             initial={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -33,7 +33,7 @@ function Track() {
               </div>
             </motion.div>
             <motion.div
-            className="lg:w-1/3 lg:mb-0 mb-6 p-4"
+            className="w-full lg:w-1/3 lg:mb-0 mb-6 p-4"
             initial={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -47,7 +47,7 @@ function Track() {
               </div>
             </motion.div>
             <motion.div
-            className="lg:w-1/3 lg:mb-0 mb-6 p-4"
+            className="w-full lg:w-1/3 lg:mb-0 mb-6 p-4"
             initial={hasAnimated ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
