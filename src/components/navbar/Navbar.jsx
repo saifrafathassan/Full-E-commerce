@@ -159,7 +159,7 @@ const scrollTo = () => {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
                   <div className="flex ">
-                    <h1 className='text-xl sm:text-3xl font-bold text-main pl-12 sm:pl-8 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h1>
+                    <h1 className='text-xl sm:text-3xl font-bold text-main sm:pl-8 py-1' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h1>
                   </div>
                 </Link>
               </div>
