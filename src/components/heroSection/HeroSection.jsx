@@ -78,13 +78,13 @@ const HeroSection = () => {
           onClick={() => sliderRef.current.slickPrev()} 
           className={`arrow arrow-left ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         >
-          <BsArrowLeftShort size={40} />
+          <BsArrowLeftShort size={30} />
         </div>
         <div 
           onClick={() => sliderRef.current.slickNext()} 
           className={`arrow arrow-right ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         >
-          <BsArrowRightShort size={40} />
+          <BsArrowRightShort size={30} />
         </div>
       </div>
     </div>
