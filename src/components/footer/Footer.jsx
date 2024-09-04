@@ -15,16 +15,16 @@ export default function Footer() {
                         <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>CATEGORIES</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</a>
+                                <Link to={'/'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</Link>
                             </li>
                             <li>
-                                <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Order</a>
+                                <Link onClick={window.scrollTo(0 ,0)} to={'/account'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Order</Link>
                             </li>
                             <li>
                                 <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Local For Vocal</a>
                             </li>
                             <li>
-                                <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart</a>
+                                <Link onClick={window.scrollTo(0 ,0)} to={'/cart'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart</Link>
                             </li>
                         </nav>
                     </div>
@@ -63,10 +63,10 @@ export default function Footer() {
                 <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
                     <Link to={'/'} className='flex'>
                         <div className="flex ">
-                            <h1 className=' text-2xl font-bold text-transparent bg-clip-text bg-main px-2 pb-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift-Store</h1>
+                            <h1 className=' text-2xl font-bold text-transparent bg-clip-text bg-main px-2 pb-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift Store</h1>
                         </div>
                     </Link>
-                    <p className="text-[12px] sm:text-sm flex items-center gap-1 text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>© 2023 Swift-Store —
+                    <p className="text-[12px] sm:text-sm flex items-center gap-1 text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>© 2023 Swift Store —
                         Created With Love<IoIosHeart color="red"/> By "Saif Rafat"
                     </p>
                     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

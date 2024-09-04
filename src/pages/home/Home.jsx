@@ -5,10 +5,11 @@ import Filter from '../../components/filter/Filter'
 import ProductCard from '../../components/productCard/ProductCard'
 import Track from '../../components/track/Track'
 import Testimonial from '../../components/testimonial/Testimonial'
+import LoadingComponent from '../LoadingComponent/LoadingComponent'
 
 const Home = () => {
   return (
-
+    <LoadingComponent>
       <Layout>
         <HeroSection/>
         <Filter/>
@@ -16,6 +17,7 @@ const Home = () => {
         <Track/>
         <Testimonial/>
       </Layout>
+    </LoadingComponent>
   )
 }
 

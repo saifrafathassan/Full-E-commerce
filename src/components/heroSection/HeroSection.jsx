@@ -66,7 +66,7 @@ const HeroSection = () => {
               transition: 'opacity 2s, transform 2s',
             }} ref={sectionRef} className='absolute inset-0 flex justify-center items-center'>
               <div className='text-white text-center text-[20px] sm:text-4xl font-bold px-4 py-2'>
-                Welcome to <span className='text-main'>Swift-Store</span><br />
+                Welcome to <span className='text-main'>Swift Store</span><br />
                 Your Amazing Shopping Destination
               </div>
             </div>

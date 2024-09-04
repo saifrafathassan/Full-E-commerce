@@ -23,7 +23,7 @@ const Reviewed = () => {
   const sectionRef = useRef();
   const [hasAnimated, setHasAnimated] = useState(false);
   const context = useContext(myContext);
-  const { mode } = context; // Getting the mode from context
+  const { mode } = context; 
 
   useEffect(() => {
     setHasAnimated(true);
@@ -67,7 +67,7 @@ const Reviewed = () => {
           <h2 className='text-[22px] font-bold'>Reviewed by People</h2>
           <h1 className='text-[27px] md:text-[42px] font-extrabold'>Client's Testimonials</h1>
           <p className={`text-[15px] md:w-[700px] text-center px-5 ${mode === 'dark' ? 'text-gray-300' : 'text-[#706f7b]'}`}>
-            Discover the positive impact we've made on our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you.
+            Discover the positive impact we've made on our clients through their testimonials. They've experienced our service and results firsthand and are excited to share their success stories with you.
           </p>
         </div>
       </motion.div>
