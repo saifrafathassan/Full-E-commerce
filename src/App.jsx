@@ -19,7 +19,6 @@ import { withTranslation  } from 'react-i18next';
 function App({ t }) {
 
   useEffect(() => {
-    // Scroll to top on page load
     window.scrollTo(0, 0);
   }, []);
 

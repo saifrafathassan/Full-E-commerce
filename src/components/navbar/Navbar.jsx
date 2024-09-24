@@ -12,7 +12,6 @@ import { motion, AnimatePresence  } from 'framer-motion';
 import LanguageSwitcher from '../../locales/languageswitcher/LanguageSwitcher'
 import { withTranslation  } from 'react-i18next';
 
-
 const Navbar = ({ t }) => {
   const context = useContext(myContext)
   const {mode, toggleMode} = context

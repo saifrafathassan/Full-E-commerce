@@ -15,8 +15,8 @@ i18n
     fallbackLng: 'en', 
     detection: {
       order: [
-        'cookie',
         'htmltag',
+        'cookie',
         'localStorage',
         'sessionStorage',
         'navigator',
