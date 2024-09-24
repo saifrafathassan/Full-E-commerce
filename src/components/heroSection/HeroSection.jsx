@@ -6,6 +6,7 @@ import Slider3 from '../../assets/shop3.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import { withTranslation  } from 'react-i18next';
 
 const slides = [
   { image: Slider1 },
@@ -13,7 +14,7 @@ const slides = [
   { image: Slider3 }
 ];
 
-const HeroSection = () => {
+const HeroSection = ({t}) => {
   const sliderRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef();
@@ -66,8 +67,8 @@ const HeroSection = () => {
               transition: 'opacity 2s, transform 2s',
             }} ref={sectionRef} className='absolute inset-0 flex justify-center items-center'>
               <div className='text-white text-center text-[20px] sm:text-4xl font-bold px-4 py-2'>
-                Welcome to <span className='text-main'>Swift Store</span><br />
-                Your Amazing Shopping Destination
+              {t('Welcome to')} <span className='text-main'>{t('Swift Store')}</span><br />
+              {t('Your Amazing Shopping Destination')}
               </div>
             </div>
           </div>
@@ -91,4 +92,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default withTranslation()(HeroSection);

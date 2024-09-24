@@ -10,15 +10,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import Slider from 'react-slick';
 import { motion } from 'framer-motion'
+import {withTranslation} from 'react-i18next'
 
-const TesImages = [
-  { image: Man, name: 'Steven Gerrard', contry: 'USA', content: 'I recently purchased a jacket from Swift-Store, and I am extremely happy with the quality. The fabric is excellent, and the details are well-crafted, making me feel both comfortable and stylish. The delivery was fast' },
-  { image: Man2, name: 'Jhon Kenway', contry: 'Brazil', content: 'I ordered a shirt from Swift-Store, and it turned out to be a great choice. The color and fit are just as described, and the quality is top-notch. The delivery was fast, and everything arrived in perfect condition.' },
-  { image: Women, name: 'Kristina Castle', contry: 'Germany', content: 'I recently got a hoodie from Swift-Store, and it exceeded my expectations. The fabric is soft, and the design is exactly as shown on the website. Delivery was prompt, and the whole experience was seamless!' },
-  { image: Man3, name: 'Mark Polo', contry: 'Belgrade', content: 'I bought a pair of jeans from Swift-Store, and I’m really impressed. The fit is perfect, and the material feels durable and comfortable. Shipping was quick, and the entire process was smooth and hassle-free.' }
-];
 
-const Reviewed = () => {
+const Reviewed = ({t}) => {
+  const TesImages = [
+    { image: Man, name: 'Steven Gerrard', contry: t('contry1'), content: t('content1') },
+    { image: Man2, name: 'Jhon Kenway', contry: t('contry2'), content: t('content2') },
+    { image: Women, name: 'Kristina Castle', contry: t('contry3'), content: t('content3') },
+    { image: Man3, name: 'Mark Polo', contry: t('contry4'), content: t('content4') }
+  ];
+
   const sliderRef = useRef();
   const sectionRef = useRef();
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -64,10 +66,10 @@ const Reviewed = () => {
         className='w-full'
       >
         <div className={`heading flex gap-5 flex-col items-center w-full ${mode === 'dark' ? 'text-white' : 'text-black'}`}>
-          <h2 className='text-[22px] font-bold'>Reviewed by People</h2>
-          <h1 className='text-[27px] md:text-[42px] font-extrabold'>Client's Testimonials</h1>
+          <h2 className='text-[22px] font-bold'>{t('Reviewed by People')}</h2>
+          <h1 className='text-[27px] md:text-[42px] font-extrabold'>{t('Client')}</h1>
           <p className={`text-[15px] md:w-[700px] text-center px-5 ${mode === 'dark' ? 'text-gray-300' : 'text-[#706f7b]'}`}>
-            Discover the positive impact we've made on our clients through their testimonials. They've experienced our service and results firsthand and are excited to share their success stories with you.
+            {t('Discover the positive')}
           </p>
         </div>
       </motion.div>
@@ -119,4 +121,4 @@ const Reviewed = () => {
   )
 }
 
-export default Reviewed
+export default withTranslation()(Reviewed);

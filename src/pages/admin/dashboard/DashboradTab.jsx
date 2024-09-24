@@ -5,8 +5,9 @@ import myContext from '../../../context/data/myContext';
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { AiFillShopping } from 'react-icons/ai';
+import { withTranslation  } from 'react-i18next';
 
-function DashboardTab() {
+function DashboardTab({t}) {
     const context = useContext(myContext)
     const { mode, product, edithandle, deleteProduct, order, user } = context
 
@@ -37,19 +38,19 @@ function DashboardTab() {
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 hover:scale-110 duration-300 border-red-800 text-red-800 rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]  px-5 py-1.5 text-center bg-[#605d5d12] ">
                                     <div className="flex gap-2 items-center">
-                                        <MdOutlineProductionQuantityLimits />Products</div> </button>
+                                        <MdOutlineProductionQuantityLimits />{t('Products')}</div> </button>
                             </Tab>
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-green-700 bg-[#605d5d12] text-green-700 hover:scale-110 duration-300  rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]    px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <AiFillShopping /> Order
+                                        <AiFillShopping /> {t('Order')}
                                     </div>
                                 </button>
                             </Tab>
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-blue-700 bg-[#605d5d12] text-blue-700 rounded-lg text-xl hover:scale-110 duration-300 shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]   px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <FaUser /> Users
+                                        <FaUser /> {t('Users')}
                                     </div>
                                 </button>
                             </Tab>
@@ -57,13 +58,13 @@ function DashboardTab() {
                         {/* product  */}
                         <TabPanel>
                             <div className='  px-4 md:px-0 mb-16'>
-                                <h1 className=' text-center mb-5 text-3xl font-semibold ' style={{ color: mode === 'dark' ? 'white' : '' }}>Product Details</h1>
+                                <h1 className=' text-center mb-5 text-3xl font-semibold ' style={{ color: mode === 'dark' ? 'white' : '' }}>{t('Product Details')}</h1>
                                 <div className=" flex justify-end">
                                     <button
                                         onClick={add}
                                         type="button"
                                         className="focus:outline-none text-white bg-main shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border-main hover:scale-110 duration-300 outline-0 font-medium rounded-lg text-sm px-5 py-2.5 mb-2" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} > <div className="flex gap-2 items-center">
-                                            Add Product <FaCartPlus size={20} />
+                                            {t('Add Product')} <FaCartPlus size={20} />
                                         </div></button>
                                 </div>
                                 <div className="relative overflow-x-auto ">
@@ -71,25 +72,25 @@ function DashboardTab() {
                                         <thead className="text-xs border border-gray-600 text-black uppercase bg-gray-200 shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                                             <tr>
                                                 <th scope="col" className="px-6 py-3">
-                                                    S.No
+                                                    {t('S.No')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Image
+                                                    {t('Image')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Title
+                                                    {t('Title')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Price
+                                                    {t('Price')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Category
+                                                    {t('Category')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Date
+                                                    {t('Date')}
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Action
+                                                    {t('Action')}
                                                 </th>
                                             </tr>
                                         </thead>
@@ -156,37 +157,37 @@ function DashboardTab() {
                                             <thead  className="text-xs text-black uppercase bg-gray-200 " style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                                                 <tr>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Payment Id
+                                                        {t('Payment Id')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Image
+                                                        {t('Image')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Title
+                                                        {t('Title')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Price
+                                                        {t('Price')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Category
+                                                        {t('Category')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Name
+                                                        {t('Name')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Address
+                                                        {t('Address')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Pincode
+                                                        {t('Pincode')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Phone Number
+                                                        {t('Phone Number')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Email
+                                                        {t('Email')}
                                                     </th>
                                                     <th scope="col" className="px-6 py-3">
-                                                        Date
+                                                        {t('Date')}
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -249,16 +250,16 @@ function DashboardTab() {
                                     <thead className="text-xs text-black uppercase bg-gray-200 " style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                                         <tr>
                                             <th scope="col" className="px-6 py-3">
-                                                S.No
+                                                {t('S.No')}
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                Name
+                                                {t('Name')}
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                Email
+                                                {t('Email')}
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                User ID
+                                                {t('User ID')}
                                             </th>
                                         </tr>
                                     </thead>
@@ -294,4 +295,4 @@ function DashboardTab() {
 }
 
 
-export default DashboardTab
+export default withTranslation()(DashboardTab); 

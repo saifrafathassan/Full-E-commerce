@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { store } from './redux/store.jsx'
 import { Provider } from 'react-redux'
+import './i18n.jsx'
 
 
 

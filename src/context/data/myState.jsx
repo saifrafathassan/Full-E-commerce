@@ -69,9 +69,7 @@ const myState = (props) => {
   const [product, setProduct] = useState([])
 
   const getProductData = async () => {
-
     setLoading(true)
-
     try {
       const q = query(
         collection(fireDB, 'products'),
@@ -178,14 +176,16 @@ const getUserData = async () => {
   }
 }
 
+const [searchkey, setSearchkey] = useState('')
+const [filterType, setFilterType] = useState('')
+
+
+
 useEffect(() => {
   getProductData();
   getOrderData();
   getUserData();
 }, []);
-
-const [searchkey, setSearchkey] = useState('')
-const [filterType, setFilterType] = useState('')
 
   return (
     <MyContext.Provider value={{

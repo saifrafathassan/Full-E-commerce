@@ -5,22 +5,24 @@ import { Link } from 'react-router-dom'
 import { BsFillCloudSunFill } from 'react-icons/bs'
 import { FiSun } from 'react-icons/fi'
 import { RxCross2 } from 'react-icons/rx'
-import Img from '../../assets/user.png'
+// import Img from '../../assets/user.png'
 import { useSelector } from "react-redux"
 import { IoIosArrowUp} from 'react-icons/io'
 import { motion, AnimatePresence  } from 'framer-motion';
+import LanguageSwitcher from '../../locales/languageswitcher/LanguageSwitcher'
+import { withTranslation  } from 'react-i18next';
 
 
-const Navbar = () => {
+const Navbar = ({ t }) => {
   const context = useContext(myContext)
   const {mode, toggleMode} = context
   const [open, setOpen] = useState(false)
   const [showButton, setShowButton] = useState(false);
 
   const messages = [
-    "Get free delivery on orders over $200",
-    "20% off on your first purchase!",
-    "Join our newsletter for exclusive deals!",
+    t('message1'),
+    t('message2'),
+    t('message3'),
   ];
 
 
@@ -103,36 +105,34 @@ const scrollTo = () => {
                     <RxCross2 />
                   </button>
                 </div>
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                <div className="space-y-6 border-t border-gray-200 px-8 py-6">
                   
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    All Products
+                  {t('All Products')}
                   </Link>
 
-                  {user ? '' : <div className="flow-root"><Link to={'/signup'} className="text-md font-medium pb-1 px-5 bg-main rounded-full text-white cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Sign&Up
+                  {user ? '' : <div className="flow-root"><Link to={'/signup'} className="text-md font-medium py-1 px-5 bg-main rounded-full text-white cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    {t('Sign&Up')}
                   </Link></div>}
 
                   {user ? <div className="flow-root">
-                    <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
-                      Order
+                    <Link to={'/account'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
+                      {t('My Account')}
                     </Link>
                   </div> : ''}
 
                   {user?.user?.email === 'saif@gmail.com' ? <div className="flow-root">
                     <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      admin
+                      {t('Admin')}
                     </Link>
                   </div> : ''}
-
 
                     
                     {user ? <div className="flow-root">
                     <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
+                      {t('Logout')}
                     </a>
                   </div> : ''}
-
 
                   {/* <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
@@ -142,6 +142,9 @@ const scrollTo = () => {
                         alt="user img" />
                       </Link>
                   </div> */}
+                  <div className="flow-root cursor-pointer w-[110px]">
+                    <LanguageSwitcher />
+                  </div>
                 </div>
 
                 <div className="border-t border-gray-200 px-4 py-6">
@@ -198,7 +201,7 @@ const scrollTo = () => {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/'} className='flex'>
                   <div className="flex ">
-                    <h1 className='text-xl sm:text-3xl font-bold text-main sm:pl-8 py-1' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift Store</h1>
+                    <h1 className='text-xl sm:text-3xl font-bold text-main sm:pl-8 py-1' style={{ color: mode === 'dark' ? 'white' : '', }}>{t('Swift Store')}</h1>
                   </div>
                 </Link>
               </div>
@@ -207,22 +210,24 @@ const scrollTo = () => {
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
 
                   <Link to={'/allproducts'} className="text-md font-medium text-gray-700 duration-300 hover:text-yellow-600 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    All Products
+                    {t('All Products')}
                   </Link>
                   
 
-                      {user ? '' : <Link to={'/signup'} className="text-md font-medium pb-1 px-5 bg-main rounded-full text-white cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Sign&Up
+                  {user ? '' : <Link to={'/signup'} className="text-md font-medium pb-1 px-4 bg-main rounded-full text-white cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    {t('Sign&Up')}
                   </Link>}
 
                     {user ? <a onClick={logout} className="text-md font-medium text-gray-700 cursor-pointer duration-300 hover:text-yellow-600 hover:scale-110 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Logout
+                    {t('Logout')}
                   </a> : ''}
+
                       {user ? <Link to={'/account'} className="text-md font-medium text-gray-700 duration-300 hover:text-yellow-600 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    My Account
+                    {t('My Account')}
                   </Link> : ''}
+
                   {user?.user?.email === 'saif@gmail.com' ? <Link to={'/dashboard'} className="text-md font-medium text-gray-700 duration-300 hover:text-yellow-600 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Admin
+                    {t('Admin')}
                   </Link> : ''}
                 </div>
 
@@ -238,7 +243,7 @@ const scrollTo = () => {
                 </div> */}
 
                 {/* Search */}
-                <div className="flex lg:ml-6">
+                <div className="flex lg:ml-4">
                   <button className='' onClick={toggleMode}>
                     {/* <MdDarkMode size={35} style={{ color: mode === 'dark' ? 'white' : '' }} /> */}
                     {mode === 'light' ?
@@ -247,10 +252,13 @@ const scrollTo = () => {
                         (<BsFillCloudSunFill size={30} />
                         ) : ''}
                   </button>
+                  <div className="md:block hidden">
+                    <LanguageSwitcher/>
+                  </div>
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
+                <div className="ml-4 flow-root">
                   <Link to={'/cart'} className="group -m-2 flex items-center p-2 duration-300 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -274,4 +282,4 @@ const scrollTo = () => {
   )
 }
 
-export default Navbar
+export default withTranslation()(Navbar);

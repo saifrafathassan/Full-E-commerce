@@ -14,22 +14,20 @@ import UpdateProduct from './pages/admin/pages/UpdateProduct';
 import Allproducts from './pages/allproducts/AllProducts';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { withTranslation  } from 'react-i18next';
 
-function App() {
+function App({ t }) {
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
-
-    return () => clearTimeout(timer);
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <MyState>
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />
           <Route path="/account" element={
             <ProtectedRoute>
@@ -63,7 +61,7 @@ function App() {
   )
 }
 
-export default App
+export default withTranslation()(App);
 
 // user 
 

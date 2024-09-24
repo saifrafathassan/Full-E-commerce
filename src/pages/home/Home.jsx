@@ -10,7 +10,7 @@ import LoadingComponent from '../LoadingComponent/LoadingComponent'
 const Home = () => {
   return (
     <LoadingComponent>
-      <Layout>
+      <Layout >
         <HeroSection/>
         <Filter/>
         <ProductCard/>

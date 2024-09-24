@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import myContext from '../../context/data/myContext';
+import { withTranslation  } from 'react-i18next';
 
-function Filter() {
+function Filter({t}) {
     const context = useContext(myContext);
     const { mode, searchkey, setSearchkey, filterType, setFilterType, product  } = context;
 
@@ -31,7 +32,7 @@ function Filter() {
                         id="searchkey"
                         value={searchkey}
                         onChange={e => setSearchkey(e.target.value)}
-                        placeholder="Search here"
+                        placeholder={t('search_placeholder')}
                         className="px-8 py-3 w-full rounded-full bg-violet-0 border-transparent outline-0 text-sm"
                         style={{
                             backgroundColor: mode === 'dark' ? 'rgb(64 66 70)' : '',
@@ -44,7 +45,7 @@ function Filter() {
             </motion.div>
             <div className="flex items-center justify-between mt-4 bg-gray-300 p-4 rounded-full">
                 <p className="font-medium text-gray-600 pl-4">
-                    Filters
+                    {t('Filters')}
                 </p>
                 <button
                     className="px-6 mr-2 py-2 bg-gray-50 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-full"
@@ -54,7 +55,7 @@ function Filter() {
                         setFilterType('');
                     }}
                 >
-                    Reset Filter
+                    {t('Reset Filter')}
                 </button>
             </div>
         <div className="mt-4 ">
@@ -71,7 +72,7 @@ function Filter() {
                 }}
             >
                 <option value="" disabled>
-                Select Category
+                {t('Select Category')}
                 </option>
                 {[...new Set(product.map((item) => item.category))].map((category, index) => (
                     <option key={index} value={category}>
@@ -85,4 +86,4 @@ function Filter() {
     );
 }
 
-export default Filter;
+export default withTranslation()(Filter); 

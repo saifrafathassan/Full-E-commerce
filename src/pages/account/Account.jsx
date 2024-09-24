@@ -11,10 +11,11 @@ import { toast } from 'react-toastify'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { updatePassword, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 import Modal from 'react-modal';
+import { withTranslation  } from 'react-i18next';
 
 Modal.setAppElement('#root'); // Set the root element for accessibility
 
-function ChangePasswordForm({ handleChangePassword }) {
+function ChangePasswordForm({ handleChangePassword, t }) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
@@ -39,7 +40,7 @@ function ChangePasswordForm({ handleChangePassword }) {
     >
       <form onSubmit={handleSubmit}>
         <div className="mb-4 relative">
-          <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700">Current Password</label>
+          <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700">{t('Current Password')}</label>
           <input 
             type={showPassword ? "text" : "password"}
             id="currentPassword" 
@@ -57,7 +58,7 @@ function ChangePasswordForm({ handleChangePassword }) {
         </div>
 
         <div className="mb-4 relative">
-          <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">New Password</label>
+          <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">{t('New Password')}</label>
           <input 
             type="password" 
             id="newPassword" 
@@ -69,7 +70,7 @@ function ChangePasswordForm({ handleChangePassword }) {
         </div>
 
         <div className="mb-4 relative">
-          <label htmlFor="confirmNewPassword" className="block text-sm font-medium text-gray-700">Confirm New Password</label>
+          <label htmlFor="confirmNewPassword" className="block text-sm font-medium text-gray-700">{t('Confirm New Password')}</label>
           <input 
             type="password" 
             id="confirmNewPassword" 
@@ -81,14 +82,14 @@ function ChangePasswordForm({ handleChangePassword }) {
         </div>
 
         <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
-          Update Password
+          {t('Update Password')}
         </button>
       </form>
     </motion.div>
   );
 }
 
-function Account() {
+function Account({t}) {
   const userid = JSON.parse(localStorage.getItem('user')).user.uid;
   const context = useContext(myContext);
   const { mode, loading, setLoading, order } = context;
@@ -135,7 +136,7 @@ function Account() {
   
         await updatePassword(user, newPassword);
         toast.success("Password Changed");
-        setShowChangePasswordForm(false); // إخفاء النموذج بعد التحديث الناجح
+        setShowChangePasswordForm(false); 
       } else {
         toast.error("No user is signed in.");
       }
@@ -160,10 +161,10 @@ function Account() {
           <Tab.Group>
             <Tab.List className="flex flex-col space-y-4">
               <Tab className={`py-3 px-4 text-left rounded-xl shadow-xl ${selectedTab === 'Orders' ? 'bg-main text-white' : 'bg-white text-black'}`} onClick={() => setSelectedTab('Orders')}>
-                Orders
+                {t('Orders')}
               </Tab>
               <Tab className={`py-3 px-4 text-left rounded-xl shadow-xl ${selectedTab === 'Account Settings' ? 'bg-main text-white' : 'bg-white text-black'}`} onClick={() => setSelectedTab('Account Settings')}>
-                Account Settings
+                {t('Account Settings')}
               </Tab>
             </Tab.List>
           </Tab.Group>
@@ -199,17 +200,17 @@ function Account() {
               </div>
             ) : (
               <div className='w-full h-[205px]'>
-                <h2 className='text-center text-2xl text-black mt-56 mb-32'>No Order Found</h2>
+                <h2 className='text-center text-2xl text-black mt-56 mb-32'>{t('No Order Found')}</h2>
               </div>
             )
           )}
 
           {selectedTab === 'Account Settings' && (
             <div className='min-h-[500px] sm:pl-10'>
-              <h2 style={{color: mode === 'dark' ? 'white' : 'black' }} className="text-2xl font-bold mb-4">Account Settings</h2>
+              <h2 style={{color: mode === 'dark' ? 'white' : 'black' }} className="text-2xl font-bold mb-4">{t('Account Settings')}</h2>
               <div>
               <button onClick={openModal} className="px-6 py-2 bg-red-500 text-white rounded">
-                Delete Account
+                {t('Delete Account')}
               </button>
               <Modal
                 isOpen={isModalOpen}
@@ -221,17 +222,17 @@ function Account() {
                 <h2 className='text-center pb-5 text-xl'>Are you sure you want to delete your account?</h2>
                 <div className="flex justify-center space-x-4">
                   <button onClick={handleDeleteAccount} className="px-4 py-2 bg-red-500 text-white rounded">
-                    OK
+                    {t('OK')}
                   </button>
                   <button onClick={closeModal} className="px-4 py-2 bg-gray-500 text-white rounded">
-                    Cancel
+                    {t('Cancel')}
                   </button>
                 </div>
               </Modal>
             </div>
               <br />
               <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={() => setShowChangePasswordForm(true)}>
-                Change Password
+                {t('Change Password')}
               </button>
               {showChangePasswordForm && (
                 <ChangePasswordForm handleChangePassword={handleChangePassword} />
@@ -244,4 +245,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default withTranslation()(Account);

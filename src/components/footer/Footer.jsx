@@ -1,73 +1,72 @@
-// import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { IoIosHeart } from "react-icons/io";
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import myContext from '../../context/data/myContext'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import myContext from '../../context/data/myContext';
+import { withTranslation } from 'react-i18next';
 
-export default function Footer() {
-    const context = useContext(myContext)
-    const { toggleMode, mode } = context
+function Footer({ t }) {
+    const context = useContext(myContext);
+    const { toggleMode, mode } = context;
+
     return (
         <footer className="text-white body-font bg-main" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }}>
-            <div className="container px-5 py-24 mx-auto" >
+            <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap md:text-left text-center order-first">
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>CATEGORIES</h2>
+                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('categories')}</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <Link to={'/'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</Link>
+                                <Link to={'/'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('home')}</Link>
                             </li>
                             <li>
-                                <Link onClick={window.scrollTo(0 ,0)} to={'/account'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Order</Link>
+                                <Link onClick={window.scrollTo(0, 0)} to={'/account'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('order')}</Link>
                             </li>
                             <li>
-                                <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Local For Vocal</a>
+                                <a className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('localForVocal')}</a>
                             </li>
                             <li>
-                                <Link onClick={window.scrollTo(0 ,0)} to={'/cart'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart</Link>
+                                <Link onClick={window.scrollTo(0, 0)} to={'/cart'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('cart')}</Link>
                             </li>
                         </nav>
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>Customer Service</h2>
+                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('customerService')}</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <Link to={'/returnpolicy'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
+                                <Link to={'/returnpolicy'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('returnPolicy')}</Link>
                             </li>
                             <li>
-                                <Link to={'/about'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>About</Link>
+                                <Link to={'/about'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('about')}</Link>
                             </li>
                             <li>
-                                <Link to={'/contact'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact Us</Link>
+                                <Link to={'/contact'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('contactUs')}</Link>
                             </li>
                         </nav>
                     </div>
 
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>Services</h2>
+                        <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('services')}</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <Link to={'/privacypolicy'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy</Link>
+                                <Link to={'/privacypolicy'} className="text-white hover:text-gray-300" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('privacy')}</Link>
                             </li>
-
                         </nav>
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                         <img src="https://ecommerce-sk.vercel.app/pay.png" alt="" />
                     </div>
                 </div>
-
             </div>
 
             <div className="bg-gray-200" style={{ backgroundColor: mode === 'dark' ? 'rgb(55 57 61)' : '', color: mode === 'dark' ? 'white' : '', }}>
                 <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
                     <Link to={'/'} className='flex'>
                         <div className="flex ">
-                            <h1 className=' text-2xl font-bold text-transparent bg-clip-text bg-main px-2 pb-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>Swift Store</h1>
+                            <h1 className=' text-2xl font-bold text-transparent bg-clip-text bg-main px-2 pb-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>{t('Swift Store')}</h1>
                         </div>
                     </Link>
-                    <p className="text-[12px] sm:text-sm flex items-center gap-1 text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>© 2023 Swift Store —
-                        Created With Love<IoIosHeart color="red"/> By "Saif Rafat"
+                    <p className="text-[12px] sm:text-sm flex items-center gap-1 text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('© 2023 Swift Store — ')}
+                        {t('Created With Love')}<IoIosHeart color="red"/> {t('By Saif Rafat')}
                     </p>
                     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                         <a style={{ color: mode === 'dark' ? 'white' : '' }} className="text-main">
@@ -96,5 +95,7 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
-    )
+    );
 }
+
+export default withTranslation()(Footer);
