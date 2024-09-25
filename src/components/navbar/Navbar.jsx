@@ -9,7 +9,7 @@ import { RxCross2 } from 'react-icons/rx'
 import { useSelector } from "react-redux"
 import { IoIosArrowUp} from 'react-icons/io'
 import { motion, AnimatePresence  } from 'framer-motion';
-import LanguageSwitcher from '../../locales/languageswitcher/LanguageSwitcher'
+import LanguageSwitcher from '../languageswitcher/Languageswitcher'
 import { withTranslation  } from 'react-i18next';
 
 const Navbar = ({ t }) => {

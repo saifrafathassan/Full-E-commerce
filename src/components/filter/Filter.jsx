@@ -49,7 +49,7 @@ function Filter({t}) {
                 </p>
                 <button
                     className="px-6 mr-2 py-2 bg-gray-50 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-full"
-                    style={{ color: mode === 'dark' ? 'white' : '' }}
+                    style={{ color: mode === 'dark' ? 'white' : '', backgroundColor: mode === 'dark' ? 'gray' : '' }}
                     onClick={() => {
                         setSearchkey('');
                         setFilterType('');
