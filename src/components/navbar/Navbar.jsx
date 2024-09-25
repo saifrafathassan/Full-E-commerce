@@ -182,7 +182,7 @@ const scrollTo = () => {
       </div>
 
         <nav aria-label="Top" className="px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
-          <div className="">
+          <div>
             <div className="flex h-16 items-center">
               <button
                 type="button"

@@ -11,6 +11,7 @@ import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import Slider from 'react-slick';
 import { motion } from 'framer-motion'
 import {withTranslation} from 'react-i18next'
+import i18n from 'i18next';
 
 
 const Reviewed = ({t}) => {
@@ -26,6 +27,8 @@ const Reviewed = ({t}) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const context = useContext(myContext);
   const { mode } = context; 
+
+  const currentLanguage = i18n.language || i18n.options.fallbackLng[0];
 
   useEffect(() => {
     setHasAnimated(true);
@@ -85,7 +88,7 @@ const Reviewed = ({t}) => {
           >
             <div className='flex justify-center pb-12 mx-auto my-8'>
               <div className={`card-1 h-[400px] w-[400px] md:w-[800px] mx-auto rounded-2xl p-14 ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-[#fff]'} shadow-2xl shadow-gray-500/50`}>
-                <p className='text-[15px] md:text-[22px] font-[500]'>{obj.content}</p>
+                <p dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'} className='text-[15px] md:text-[22px] font-[500]'>{obj.content}</p>
                 <div className='flex justify-between items-center pt-7'>
                   <div className='flex items-center justify-center'>
                     <img className='rounded-[50%] object-cover w-[112px] h-[112px]' src={obj.image} alt="testimonial" />
