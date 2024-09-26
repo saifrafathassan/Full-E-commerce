@@ -12,15 +12,19 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { updatePassword, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
 import Modal from 'react-modal';
 import { withTranslation  } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 Modal.setAppElement('#root'); // Set the root element for accessibility
 
-function ChangePasswordForm({ handleChangePassword, t }) {
+function ChangePasswordForm({ handleChangePassword}) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const { t } = useTranslation();
+  // console.log(t)
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
     };

@@ -221,7 +221,7 @@ const scrollTo = () => {
                     {t('Logout')}
                   </a> : ''}
 
-                      {user ? <Link to={'/account'} className="text-md font-medium text-gray-700 duration-300 hover:text-yellow-600 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      {user && user?.user?.email !== 'saif@gmail.com' ? <Link to={'/account'} className="text-md font-medium text-gray-700 duration-300 hover:text-yellow-600 hover:scale-110" style={{ color: mode === 'dark' ? 'white' : '', }}>
                     {t('My Account')}
                   </Link> : ''}
 

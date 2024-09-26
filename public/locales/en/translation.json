@@ -86,5 +86,15 @@
     "Address": "Address",
     "Pincode": "Pincode",
     "Phone Number": "Phone Number",
-    "User ID": "User ID"
+    "User ID": "User ID",
+    "Buy Now": "Buy Now",
+    "Enter Full Name": "Enter Full Name",
+    "Enter Full Address": "Enter Full Address",
+    "Enter Pincode": "Enter Pincode",
+    "Enter Mobile Number": "Enter Mobile Number",
+    "Order Now": "Order Now",
+    "Cart Items": "Cart Items",
+    "Subtotal": "Subtotal",
+    "Shipping": "Shipping",
+    "Total": "Total"
 }

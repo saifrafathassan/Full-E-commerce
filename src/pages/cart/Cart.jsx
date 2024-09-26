@@ -5,8 +5,9 @@ import PaymobCheckout from '../../components/paycheckout/PaymobCheckout';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
+import { withTranslation  } from 'react-i18next';
 
-function Cart() {
+function Cart({t}) {
 
   const [name, setName] = useState("")
   const [address, setAddress] = useState("");
@@ -53,7 +54,7 @@ function Cart() {
   return (
     <Layout >
       <div className="h-full min-h-screen bg-gray-100 pt-5 " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
-        <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
+        <h1 className="mb-10 text-center text-2xl font-bold">{t('Cart Items')}</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 ">
             {cartItems.map((item, index) => {
@@ -81,16 +82,16 @@ function Cart() {
           </div>
           <div className="mt-6 h-full mb-20 rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '', }}>
             <div className="mb-2 flex justify-between">
-              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Subtotal</p>
+              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('Subtotal')}</p>
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>${totalAmount}</p>
             </div>
             <div className="flex justify-between">
-              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping</p>
+              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('Shipping')}</p>
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>${shipping}</p>
             </div>
             <hr className="my-4" />
             <div className="flex justify-between mb-3">
-              <p className="text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>Total</p>
+              <p className="text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>{t('Total')}</p>
               <div>
                 <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>${grandTotal}</p>
               </div>
@@ -115,4 +116,4 @@ function Cart() {
   )
 }
 
-export default Cart
+export default withTranslation()(Cart);

@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../firebase/FirebaseConfig'
+import { useTranslation } from 'react-i18next';
 
 const paymobApiKey = import.meta.env.VITE_PAYMOB_API_KEY;
 const paymobIntegrationId = import.meta.env.VITE_PAYMOB_INTEGRATION_ID;
@@ -12,6 +13,8 @@ const paymobPaymentId = import.meta.env.VITE_PAYMOB_PAYMENT_ID;
 
 export default function PaymobCheckout({ name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, totalAmount, cartItems }) {
   let [isOpen, setIsOpen] = useState(false)
+
+  const { t } = useTranslation();
 
   function closeModal() {
       setIsOpen(false)
@@ -107,7 +110,7 @@ export default function PaymobCheckout({ name, address, pincode, phoneNumber, se
                 onClick={openModal}
                 className="w-full hover:bg-yellow-400 hover:text-main duration-300 bg-main py-2 text-center rounded-lg text-white font-bold"
             >
-                Buy Now
+                {t('Buy Now')}
             </button>
         </div>
 
@@ -149,24 +152,24 @@ export default function PaymobCheckout({ name, address, pincode, phoneNumber, se
 
                                                 <form className="space-y-4 md:space-y-6" action="#">
                                                     <div>
-                                                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Enter Full Name</label>
+                                                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">{t('Enter Full Name')}</label>
                                                         <input value={name} onChange={(e)=>setName(e.target.value)} type="name" name="name" id="name" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                     </div>
                                                     <div>
-                                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Enter Full Address</label>
+                                                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">{t('Enter Full Address')}</label>
                                                         <input value={address} onChange={(e)=>setAddress(e.target.value)} type="text" name="address" id="address" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                     </div>
                                                     <div>
-                                                        <label htmlFor="pincode" className="block mb-2 text-sm font-medium text-gray-900">Enter Pincode</label>
+                                                        <label htmlFor="pincode" className="block mb-2 text-sm font-medium text-gray-900">{t('Enter Pincode')}</label>
                                                         <input value={pincode} onChange={(e)=>setPincode(e.target.value)} type="text" name="pincode" id="pincode" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                     </div>
                                                     <div>
-                                                        <label htmlFor="mobileNumber" className="block mb-2 text-sm font-medium text-gray-900">Enter Mobile Number</label>
+                                                        <label htmlFor="mobileNumber" className="block mb-2 text-sm font-medium text-gray-900">{t('Enter Mobile Number')}</label>
                                                         <input value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} type="text" name="mobileNumber" id="mobileNumber" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                     </div>
 
                                                 </form>
-                                                <button onClick={()=>{handlePayment(); closeModal()}} type="button" className="hover:bg-yellow-400 hover:text-main duration-300 w-full bg-main text-white outline-0 font-bold rounded-lg text-sm px-5 py-2.5 ">Order Now</button>
+                                                <button onClick={()=>{handlePayment(); closeModal()}} type="button" className="hover:bg-yellow-400 hover:text-main duration-300 w-full bg-main text-white outline-0 font-bold rounded-lg text-sm px-5 py-2.5 ">{t('Order Now')}</button>
                                             </div>
                                         </div>
                                     </div>

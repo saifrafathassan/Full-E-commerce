@@ -86,7 +86,17 @@
     "Address": "العنوان",
     "Pincode": "الرمز البريدي",
     "Phone Number": "رقم الهاتف",
-    "User ID": "رقم المستخدم"
+    "User ID": "رقم المستخدم",
+    "Buy Now": "اشتري الان",
+    "Enter Full Name": "اكتب الاسم الكامل",
+    "Enter Full Address": "اكتب العنوان الكامل",
+    "Enter Pincode": "اكتب الرمز البريدي",
+    "Enter Mobile Number": "اكتب رقم الجوال",
+    "Order Now": "اطلب الآن",
+    "Cart Items": "عناصر السلة",
+    "Subtotal": "المجموع الفرعي",
+    "Shipping": "الشحن",
+    "Total": "الإجمالي"
 }
 
 
