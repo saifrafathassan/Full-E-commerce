@@ -5,11 +5,11 @@ const LanguageSwitcher = () => {
 const { i18n } = useTranslation();
 const [hover, setHover] = useState(false);
 
+const currentLanguage = i18n.language.split('-')[0];
 const handleLanguageChange = (lng) => {
     i18n.changeLanguage(lng);
 };
 
-const currentLanguage = i18n.language || i18n.options.fallbackLng[0];
 
 return (
     <div 

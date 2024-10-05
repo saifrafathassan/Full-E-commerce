@@ -13,6 +13,7 @@ i18n
     },
     debug: true,
     fallbackLng: 'en', 
+    load: 'languageOnly', 
     detection: {
       order: [
         'cookie',
@@ -24,7 +25,10 @@ i18n
         'subdomain'
       ],
       caches: ['cookie'],
-    }
+    },
+    interpolation: {
+      escapeValue: false, 
+    },
   });
 
 export default i18n;
